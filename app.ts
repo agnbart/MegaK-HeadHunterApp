@@ -1,14 +1,20 @@
 import * as express from 'express';
+import * as dotenv from 'dotenv';
+dotenv.config({ path: __dirname + '/.env' });
+import { adminRouter } from './routers/admin';
+import { traineeRouter } from './routers/trainee';
+import { hrRouter } from './routers/hr';
+
+dotenv.config();
 export const app = express();
 
-app.use(express.json());
+const PORT = process.env.PORT
 
-app.get('/', function (req, res, next) {
-    res.json({
-        'status': 'Sukces!'
-    });
-});
+
+app.use('/admin', adminRouter);
+app.use('/trainee', traineeRouter);
+app.use('/hr', hrRouter);
 
 app.listen(3001, function () {
-    console.log('Listening!');
+    console.log(`Server listening on http://localhost:${PORT}`);
 })
