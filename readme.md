@@ -14,4 +14,4 @@ The application is not intended to be direct competition for job portals. The pr
 
 #### 🔧 Technical requirements
 
-Express.js, MySQL, React
+Express.js, TypeScript, MySQL
